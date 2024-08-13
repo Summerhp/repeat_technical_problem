@@ -1,7 +1,5 @@
 import React from 'react';
-import { Layout } from 'antd';
-import { Col, Row } from 'antd';
-import { Form, Input, List, Space } from 'antd';
+import { Layout, Col, Row, Form, Input, List, Space } from 'antd';
 import { FacebookOutlined, InstagramOutlined, LinkedinOutlined, WhatsAppOutlined } from '@ant-design/icons';
 
 const { Footer } = Layout;

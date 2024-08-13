@@ -1,0 +1,87 @@
+[
+    {
+      "id": "C1",
+      "nombre": "Galaxy S21",
+      "marca": "Samsung",
+      "precio": 799.99,
+      "reviews": 4.5,
+      "favorito": false,
+      "imagen": "https://tienda.movistar.com.co/media/catalog/product/cache/ebd1de6550e0d0b8d8c505e2a09b56c4/s/2/s21fenegro01.jpg",
+      "informacion": {
+        "fabricante": "Samsung Electronics",
+        "peso": "169g",
+        "dimensiones": "151.7 x 71.2 x 7.9 mm",
+        "pais_de_origen": "Corea del Sur",
+        "numero_de_modelo": "SM-G991B",
+        "color": "Phantom Gray",
+        "material": "Vidrio y aluminio",
+        "cantidad_de_piezas": 1,
+        "caracteristicas_especiales": "5G, IP68 resistencia al agua, Wireless Charging",
+        "componentes_incluidos": "Teléfono, Cargador, Cable USB-C, Manual"
+      }
+    },
+    {
+      "id": "C2",
+      "nombre": "iPhone 13",
+      "marca": "Apple",
+      "precio": 999.99,
+      "reviews": 4.7,
+      "favorito": false,
+      "imagen": "https://exitocol.vtexassets.com/arquivos/ids/16320625/apple-iphone-13-5g-128gb-blanco-estelar-nuevo.jpg?v=638100885873530000",
+      "informacion": {
+        "fabricante": "Apple Inc.",
+        "peso": "174g",
+        "dimensiones": "146.7 x 71.5 x 7.7 mm",
+        "pais_de_origen": "China",
+        "numero_de_modelo": "A2633",
+        "color": "Midnight",
+        "material": "Vidrio y aluminio",
+        "cantidad_de_piezas": 1,
+        "caracteristicas_especiales": "5G, Face ID, MagSafe",
+        "componentes_incluidos": "Teléfono, Cable USB-C a Lightning, Manual"
+      }
+    },
+    {
+      "id": "C3",
+      "nombre": "Pixel 6",
+      "marca": "Google",
+      "precio": 599.99,
+      "reviews": 4.3,
+      "favorito": false,
+      "imagen": "https://m.media-amazon.com/images/I/61ruKkvVIxL.jpg",
+      "informacion": {
+        "fabricante": "Google LLC",
+        "peso": "207g",
+        "dimensiones": "158.6 x 74.8 x 8.9 mm",
+        "pais_de_origen": "China",
+        "numero_de_modelo": "GA01341",
+        "color": "Sorta Seafoam",
+        "material": "Vidrio y aluminio",
+        "cantidad_de_piezas": 1,
+        "caracteristicas_especiales": "5G, Titan M2 security, Wireless Charging",
+        "componentes_incluidos": "Teléfono, Cargador, Cable USB-C, Adaptador OTG, Manual"
+      }
+    },
+    {
+      "id": "C4",
+      "nombre": "Xperia 1 III",
+      "marca": "Sony",
+      "precio": 1299.99,
+      "reviews": 4.2,
+      "favorito": false,
+      "imagen": "https://http2.mlstatic.com/D_Q_NP_609970-MLA48917373694_012022-O.webp",
+      "informacion": {
+        "fabricante": "Sony Corporation",
+        "peso": "186g",
+        "dimensiones": "165 x 71 x 8.2 mm",
+        "pais_de_origen": "Japón",
+        "numero_de_modelo": "XQ-BC72",
+        "color": "Frosted Black",
+        "material": "Vidrio y aluminio",
+        "cantidad_de_piezas": 1,
+        "caracteristicas_especiales": "4K HDR OLED, 120Hz, IP65/68 resistencia al agua",
+        "componentes_incluidos": "Teléfono, Cargador, Cable USB-C, Manual"
+      }
+    }
+  ]
+  
