@@ -11,7 +11,8 @@
         "motor": "998cc, 4 tiempos, DOHC",
         "potencia": "200 hp",
         "peso": "207 kg",
-        "transmision": "6 velocidades"
+        "transmision": "6 velocidades",
+        "color": "Verde"
       }
     },
     {
@@ -26,7 +27,8 @@
         "motor": "599cc, 4 tiempos, DOHC",
         "potencia": "113 hp",
         "peso": "194 kg",
-        "transmision": "6 velocidades"
+        "transmision": "6 velocidades",
+        "color": "Rojo"
       }
     },
     {
@@ -41,7 +43,8 @@
         "motor": "599cc, 4 tiempos, DOHC",
         "potencia": "117 hp",
         "peso": "190 kg",
-        "transmision": "6 velocidades"
+        "transmision": "6 velocidades",
+        "color": "Negro"
       }
     },
     {
@@ -56,7 +59,8 @@
         "motor": "955cc, 4 tiempos, DOHC",
         "potencia": "155 hp",
         "peso": "176 kg",
-        "transmision": "6 velocidades"
+        "transmision": "6 velocidades",
+        "color": "Negro"
       }
     }
   ]

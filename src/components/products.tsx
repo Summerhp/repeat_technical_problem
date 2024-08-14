@@ -51,6 +51,7 @@ interface Product {
     precio: number;
     reviews: number;
     imagen: string;
+    informacion: JSON;
 }
 
 interface Brand {
@@ -128,7 +129,7 @@ const Products: React.FC = () => {
                 <Col span={6} offset={2}>
                     <Filters brands={allBrands} />
                 </Col>
-                <Col span={16} offset={0}>
+                <Col span={16} offset={0} style={{ maxHeight: '700px', overflowY: 'auto' }}>
                     <ProductGrid products={filteredProducts} />
                 </Col>
             </Row>

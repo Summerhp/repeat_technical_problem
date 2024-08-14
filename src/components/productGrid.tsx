@@ -9,6 +9,7 @@ interface Product {
     precio: number;
     reviews: number;
     imagen: string;
+    informacion: JSON;
 }
 
 interface ProductGridProps {
@@ -19,7 +20,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
     return (
         <Row>
             {products.map((product) => (
-                <ProductCard id={product.id} nombre={product.nombre} marca={product.marca} precio={product.precio} reviews={product.reviews} imagen={product.imagen} />
+                <ProductCard id={product.id} nombre={product.nombre} marca={product.marca} precio={product.precio} reviews={product.reviews} imagen={product.imagen} informacion={product.informacion}/>
             ))}
         </Row>
 
