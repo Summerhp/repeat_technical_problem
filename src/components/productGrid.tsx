@@ -17,13 +17,12 @@ interface ProductGridProps {
 
 const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
     return (
-        <Col>
-            <Row>
-                {products.map((product) => (
-                    <ProductCard id={product.id} nombre={product.nombre} marca={product.marca} precio={product.precio} reviews={product.reviews} imagen={product.imagen} />
-                ))}
-            </Row>
-        </Col>
+        <Row>
+            {products.map((product) => (
+                <ProductCard id={product.id} nombre={product.nombre} marca={product.marca} precio={product.precio} reviews={product.reviews} imagen={product.imagen} />
+            ))}
+        </Row>
+
     );
 };
 

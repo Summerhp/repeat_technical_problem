@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import celulares from '../data/celulares.json';
 import motos from '../data/motocicletas.json';
 import { Form, Col, Row, Select, Input } from 'antd';
-import type { AutoCompleteProps } from 'antd';
 import Filters from './filters.tsx';
 import ProductGrid from './productGrid.tsx';
+import { SearchOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 
@@ -97,21 +97,21 @@ const Products: React.FC = () => {
                     Ordenar por:
                 </Col>
                 <Col span={4}>
-                    <Select defaultValue="review">
+                    <Select defaultValue="review" style={{ width: '175px' }}>
                         <Option value="review">Mejores reviews</Option>
                         <Option value="asc">Precio ascendente</Option>
                         <Option value="desc">Precio descendente</Option>
                     </Select>
                 </Col>
                 <Col span={10}>
-                    <Form>
-                        <Row style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <Col span={14}>
+                    <Form style={{ alignItems:'center'}}>
+                        <Row>
+                            <Col span={12}>
                                 <Form.Item>
-                                    <Input placeholder="Encuentra el producto que necesitas." />
+                                    <Input style={{borderBottomLeftRadius: '20px', borderTopLeftRadius:'20px'}} prefix={<SearchOutlined />} placeholder="Encuentra el producto que necesitas." />
                                 </Form.Item>
                             </Col>
-                            <Col span={10}>
+                            <Col span={8}>
                                 <Form.Item>
                                     <Select defaultValue="all-categories">
                                         <Option value="all-categories">Todas las categorías</Option>
@@ -125,10 +125,10 @@ const Products: React.FC = () => {
                 </Col>
             </Row>
             <Row>
-                <Col span={4} offset={2}>
+                <Col span={6} offset={2}>
                     <Filters brands={allBrands} />
                 </Col>
-                <Col span={18}>
+                <Col span={16} offset={0}>
                     <ProductGrid products={filteredProducts} />
                 </Col>
             </Row>
