@@ -79,21 +79,38 @@ const getAllBrands = (): Brand[] => {
     return [...brandsFromJSON1, ...brandsFromJSON2];
 };
 
+const getAllProducts = (): Product[]=>{
+    return [...celulares.map(normalizeProduct), ...motos.map(normalizeProduct)
+    ]
+}
 
-const handleChange = (value: string) => {
-    console.log(`selected ${value}`);
-};
 
 const Products: React.FC = () => {
-    const allBrands = getAllBrands();    
-    const allProducts: Product[] = [
-        ...celulares.map(normalizeProduct),
-        ...motos.map(normalizeProduct)
-    ];
+    const allBrands = getAllBrands();
+    const allProducts= getAllProducts();
+
     const [filteredProducts, setFilteredProducts] = useState(allProducts);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [selectedCategory, setSelectedCategory] = useState('all-categories');
+
+    useEffect(() => {
+        const filtered = allProducts.filter((product) => {
+            const fullName = `${product.marca.toLowerCase()} ${product.nombre.toLowerCase()}`;
+            const matchesSearchTerm = fullName.includes(searchTerm.toLowerCase());
+
+            const matchesCategory =
+                selectedCategory === 'all-categories' ||
+                (selectedCategory === 'celulares' && product.id.startsWith('C')) ||
+                (selectedCategory === 'motocicletas' && product.id.startsWith('M'));
+
+            return matchesSearchTerm && matchesCategory;
+        });
+
+        setFilteredProducts(filtered);
+    }, [searchTerm, selectedCategory, allProducts]);
     return (
         <>
-            <Row style={{ alignItems: 'center' }}>
+            <Row align={'middle'}>
                 <Col span={2} offset={2}>
                     Ordenar por:
                 </Col>
@@ -105,16 +122,16 @@ const Products: React.FC = () => {
                     </Select>
                 </Col>
                 <Col span={10}>
-                    <Form style={{ alignItems:'center'}}>
+                    <Form>
                         <Row>
                             <Col span={12}>
                                 <Form.Item>
-                                    <Input style={{borderBottomLeftRadius: '20px', borderTopLeftRadius:'20px'}} prefix={<SearchOutlined />} placeholder="Encuentra el producto que necesitas." />
+                                    <Input onChange={(e) => setSearchTerm(e.target.value)} style={{ borderBottomLeftRadius: '20px', borderTopLeftRadius: '20px' }} prefix={<SearchOutlined />} placeholder="Encuentra el producto que necesitas." />
                                 </Form.Item>
                             </Col>
                             <Col span={8}>
                                 <Form.Item>
-                                    <Select defaultValue="all-categories">
+                                    <Select onChange={(value) => setSelectedCategory(value)} defaultValue="all-categories">
                                         <Option value="all-categories">Todas las categorías</Option>
                                         <Option value="celulares">Celulares</Option>
                                         <Option value="motocicletas">Motos</Option>
