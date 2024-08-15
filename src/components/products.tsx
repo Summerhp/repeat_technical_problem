@@ -79,22 +79,31 @@ const getAllBrands = (): Brand[] => {
     return [...brandsFromJSON1, ...brandsFromJSON2];
 };
 
-const getAllProducts = (): Product[]=>{
+const getAllProducts = (): Product[] => {
     return [...celulares.map(normalizeProduct), ...motos.map(normalizeProduct)
     ]
 }
 
 
 const Products: React.FC = () => {
-    const allBrands = getAllBrands();
-    const allProducts= getAllProducts();
+    const allProducts = [
+        ...celulares.map((product) => ({ ...product, id: `C${product.id}` })),
+        ...motos.map((product) => ({ ...product, id: `M${product.id}` })),
+    ];
 
     const [filteredProducts, setFilteredProducts] = useState(allProducts);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('all-categories');
+    const [sortOrder, setSortOrder] = useState('review');
+    const [allBrands, setAllBrands] = useState(getAllBrands());
+    const [selectedFilters, setSelectedFilters] = useState({
+        brands: [],
+        reviews: 0,
+        priceRange: { min: 0, max: Infinity }
+    });
 
     useEffect(() => {
-        const filtered = allProducts.filter((product) => {
+        let filtered = allProducts.filter((product) => {
             const fullName = `${product.marca.toLowerCase()} ${product.nombre.toLowerCase()}`;
             const matchesSearchTerm = fullName.includes(searchTerm.toLowerCase());
 
@@ -103,11 +112,42 @@ const Products: React.FC = () => {
                 (selectedCategory === 'celulares' && product.id.startsWith('C')) ||
                 (selectedCategory === 'motocicletas' && product.id.startsWith('M'));
 
-            return matchesSearchTerm && matchesCategory;
+            const matchesBrands = selectedFilters.brands.length === 0 || selectedFilters.brands.includes(product.marca);
+            const matchesReviews = product.reviews >= selectedFilters.reviews;
+
+            const matchesPrice =
+                product.precio >= selectedFilters.priceRange.min &&
+                product.precio <= selectedFilters.priceRange.max;
+
+            return matchesSearchTerm && matchesCategory && matchesBrands && matchesReviews && matchesPrice;
         });
 
+        // Lógica de ordenamiento
+        if (sortOrder === 'asc') {
+            filtered = filtered.sort((a, b) => a.precio - b.precio);
+        } else if (sortOrder === 'desc') {
+            filtered = filtered.sort((a, b) => b.precio - a.precio);
+        } else if (sortOrder === 'review') {
+            filtered = filtered.sort((a, b) => b.reviews - a.reviews);
+        }
+
         setFilteredProducts(filtered);
-    }, [searchTerm, selectedCategory, allProducts]);
+    }, [searchTerm, selectedCategory, sortOrder, selectedFilters, allProducts]);
+
+    useEffect(() => {
+        // Actualizar marcas en función de la categoría seleccionada
+        if (selectedCategory === 'celulares') {
+            setAllBrands(getBrandsFromCelulares());
+        } else if (selectedCategory === 'motocicletas') {
+            setAllBrands(getBrandsFromMotos());
+        } else {
+            setAllBrands(getAllBrands());
+        }
+    }, [selectedCategory]);
+
+    const handleFiltersChange = (filters) => {
+        setSelectedFilters(filters);
+    };
     return (
         <>
             <Row align={'middle'}>
@@ -115,7 +155,7 @@ const Products: React.FC = () => {
                     Ordenar por:
                 </Col>
                 <Col span={4}>
-                    <Select defaultValue="review" style={{ width: '175px' }}>
+                    <Select onChange={(value) => setSortOrder(value)} defaultValue="review" style={{ width: '175px' }}>
                         <Option value="review">Mejores reviews</Option>
                         <Option value="asc">Precio ascendente</Option>
                         <Option value="desc">Precio descendente</Option>
@@ -144,7 +184,7 @@ const Products: React.FC = () => {
             </Row>
             <Row>
                 <Col span={6} offset={2}>
-                    <Filters brands={allBrands} />
+                    <Filters brands={allBrands} onFiltersChange={handleFiltersChange} />
                 </Col>
                 <Col span={16} offset={0} style={{ maxHeight: '700px', overflowY: 'auto' }}>
                     <ProductGrid products={filteredProducts} />

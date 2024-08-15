@@ -4,7 +4,7 @@
       "nombre": "Ninja ZX-10R",
       "marca": "Kawasaki",
       "precio": 15999.99,
-      "reviews": 4.8,
+      "reviews": 3,
       "favorito": false,
       "imagen": "https://storage.kawasaki.eu/public/kawasaki.eu/en-EU/model/2020_Ninja_ZX-10R_Performance_GN2_FRONT.jpg",
       "informacion": {
@@ -20,7 +20,7 @@
       "nombre": "CBR600RR",
       "marca": "Honda",
       "precio": 11799.99,
-      "reviews": 4.6,
+      "reviews": 5,
       "favorito": false,
       "imagen": "https://img.remediosdigitales.com/fc045d/honda-cbr600rr-serie-carreras-2021-4/840_560.jpg",
       "informacion": {
@@ -36,7 +36,7 @@
       "nombre": "YZF-R6",
       "marca": "Yamaha",
       "precio": 12199.99,
-      "reviews": 4.7,
+      "reviews": 1,
       "favorito": false,
       "imagen": "https://m.media-amazon.com/images/I/61jc2me5ojL._AC_UF894,1000_QL80_.jpg",
       "informacion": {
@@ -52,7 +52,7 @@
       "nombre": "Panigale V2",
       "marca": "Ducati",
       "precio": 16995.00,
-      "reviews": 5,
+      "reviews": 3,
       "favorito": false,
       "imagen": "https://publimotos.com/wp-content/uploads/2024/04/Panigale-V2-Ducati-presenta-el-nuevo-e-impresionante-diseno-de-esta-moto-1.png",
       "informacion": {

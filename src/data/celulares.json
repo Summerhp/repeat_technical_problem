@@ -4,7 +4,7 @@
       "nombre": "Galaxy S21",
       "marca": "Samsung",
       "precio": 799.99,
-      "reviews": 4.5,
+      "reviews": 1,
       "favorito": false,
       "imagen": "https://tienda.movistar.com.co/media/catalog/product/cache/ebd1de6550e0d0b8d8c505e2a09b56c4/s/2/s21fenegro01.jpg",
       "informacion": {
@@ -25,7 +25,7 @@
       "nombre": "iPhone 13",
       "marca": "Apple",
       "precio": 999.99,
-      "reviews": 4.7,
+      "reviews": 5,
       "favorito": false,
       "imagen": "https://exitocol.vtexassets.com/arquivos/ids/16320625/apple-iphone-13-5g-128gb-blanco-estelar-nuevo.jpg?v=638100885873530000",
       "informacion": {
@@ -46,7 +46,7 @@
       "nombre": "Pixel 6",
       "marca": "Google",
       "precio": 599.99,
-      "reviews": 4.3,
+      "reviews": 2,
       "favorito": false,
       "imagen": "https://m.media-amazon.com/images/I/61ruKkvVIxL.jpg",
       "informacion": {
@@ -67,7 +67,7 @@
       "nombre": "Xperia 1 III",
       "marca": "Sony",
       "precio": 1299.99,
-      "reviews": 4.2,
+      "reviews": 4,
       "favorito": false,
       "imagen": "https://http2.mlstatic.com/D_Q_NP_609970-MLA48917373694_012022-O.webp",
       "informacion": {
