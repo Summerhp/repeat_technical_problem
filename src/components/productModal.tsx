@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Modal, Row, Col } from 'antd';
 import { CheckOutlined } from '@ant-design/icons';
+import './modal.css';
 
 interface ProductModalProps {
     show: boolean;
@@ -42,30 +43,36 @@ const ProductModal: React.FC<ProductModalProps> = ({ product }) => {
     return (
         <>
             <Button type="primary" onClick={showModal} style={buttonStyle} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>Lo quiero </Button>
-            <Modal open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-                <img style={{ width: '470px' }} src='./Modal.png'></img>
-                <Row>
-                    <Col span={8}>
-                        <img style={{ width: '150px' }} src={product.imagen}></img>
-                    </Col>
-                    <Col span={16}>
-                        <Row style={{ height: '20px', marginBottom: '20px' }}>
-                            <p>{product.precio} x 1</p>
-                        </Row>
-                        <Row style={{ height: '20px', marginBottom: '5px' }}>
-                            <h3>{product.marca} {product.nombre}</h3>
-                        </Row>
-                        <Row style={{}}>
-                            <p>Color seleccionado: {product.informacion.color}</p>
-                        </Row>
-                    </Col>
-                </Row>
+            <Modal className="modalStyle" open={isModalOpen} footer={null} onCancel={handleCancel} closable={false} bodyStyle={{ padding: 0, margin: 0 }}>
+                <img style={{ width: '520px' }} src='./Modal.png'></img>
+                <div className='body-modal'>
+                    <Row>
+                        <Col span={8}>
+                            <img style={{ width: '150px' }} src={product.imagen}></img>
+                        </Col>
+                        <Col span={16}>
+                            <Row justify={'end'} style={{ height: '20px', marginBottom: '20px' }}>
+                                <p style={{ color: '#004AC1' }}>${product.precio} x 1</p>
+                            </Row>
+                            <Row style={{ height: '20px', marginBottom: '5px' }}>
+                                <h3>{product.marca} {product.nombre}</h3>
+                            </Row>
+                            <Row>
+                                <p style={{ color: '#7D879C' }}>
+                                    Color seleccionado: <span style={{ fontWeight: 'bold' }}>{product.informacion.color}</span>
+                                </p>
+                            </Row>
+                        </Col>
+                    </Row>
+                </div>
                 <Row style={{ borderTop: '1px solid #B4B4B4', borderBottom: '1px solid #B4B4B4', padding: '10px' }}>
                     <Col span={12}>
                         <p>1 ítem en tu carrito</p>
                     </Col>
                     <Col span={12} style={{ textAlign: 'end' }}>
-                        <p>Subtotal  {product.precio}</p>
+                        <p>
+                            Subtotal <span style={{ color: '#004AC1' }}>${product.precio}</span>
+                        </p>
                     </Col>
                 </Row>
                 <br></br>
@@ -74,13 +81,32 @@ const ProductModal: React.FC<ProductModalProps> = ({ product }) => {
                         <CheckOutlined style={{ color: '#004AC1', fontSize: '30px' }} />
                     </div>
                 </Row>
-                <Row>
-                    <h2 style={{ textAlign: 'center' }}>Te vas a llevar este celular por solo $120 p/semana!</h2>
-                </Row>
+                <div className='body2-modal'>
+                    <Row>
+                        <h2 style={{ textAlign: 'center' }}>Te vas a llevar este celular por solo $120 p/semana!</h2>
+                    </Row>
+                </div>
                 <Row justify={'center'}>
-                    <Button type="primary" style={{ padding: '30px',backgroundColor: '#fadb14', borderColor: '#fadb14', color:'#000000' }}>
+                    <Button type="primary" style={{ padding: '30px', backgroundColor: '#fadb14', borderColor: '#fadb14', color: '#000000' }}>
                         COMPRAR A CRÉDITO
                     </Button>
+                </Row>
+                <br></br>
+                <Row align="middle" style={{ marginBottom: '16px' }}>
+                    <Col span={4} offset={6}>
+                        <div style={{ borderBottom: '1px solid #ccc', width: '100%' }}></div>
+                    </Col>
+                    <Col span={4} style={{ textAlign: 'center', color: '#B4B4B4', fontStyle: 'italic' }}>
+                        <p style={{ margin: 0 }}>o puedes</p>
+                    </Col>
+                    <Col span={4} >
+                        <div style={{ borderBottom: '1px solid #ccc', width: '100%' }}></div>
+                    </Col>
+                </Row>
+                <Row style={{ height: '30px' }} justify={'center'}>
+                    <div>
+                        <p style={{ color: '#004AC1', marginTop: '0px' }}>Comprar a contado</p>
+                    </div>
                 </Row>
             </Modal>
         </>

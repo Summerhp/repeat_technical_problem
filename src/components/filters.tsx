@@ -52,7 +52,7 @@ const Filters: React.FC<FiltersProps> = ({ brands }) => {
                     <h3 style={{ color: '#013E9B' }}>Marcas</h3>
                     <div style={{ maxHeight: '200px', overflowY: 'auto' }}>
                         {brands.map((brand, index) => (
-                            <Form.Item key={index}>
+                            <Form.Item style={{height: '5px'}} key={index}>
                                 <Checkbox value={brand} id={String(brand.id)}>
                                     {brand}
                                 </Checkbox>
