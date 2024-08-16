@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductCard from './productCard.tsx';
-import { Col, Row } from 'antd';
+import { Row } from 'antd';
 
 interface Product {
     id: string;

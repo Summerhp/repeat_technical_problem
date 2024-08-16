@@ -31,6 +31,7 @@ const Filters: React.FC<FiltersProps> = ({ brands, onFiltersChange }) => {
 
     const handlePriceChange = (min: number, max: number) => {
         setPriceRange({ min, max });
+        console.log(min, max)
         onFiltersChange({ brands: selectedBrands, reviews: selectedReviews, priceRange: { min, max } });
     };
 
@@ -46,7 +47,7 @@ const Filters: React.FC<FiltersProps> = ({ brands, onFiltersChange }) => {
                     <StarFilled
                         key={i}
                         style={{ color: '#FFFF00', fontSize: '25px', cursor: 'pointer' }}
-                        onClick={() => handleReviewsChange(i+1)}
+                        onClick={() => handleReviewsChange(i + 1)}
                     />
                 );
             } else {
@@ -54,7 +55,7 @@ const Filters: React.FC<FiltersProps> = ({ brands, onFiltersChange }) => {
                     <StarOutlined
                         key={i}
                         style={{ color: '#FFFF00', fontSize: '25px', cursor: 'pointer' }}
-                        onClick={() => handleReviewsChange(i+1)}
+                        onClick={() => handleReviewsChange(i + 1)}
                     />
                 );
             }
@@ -69,22 +70,23 @@ const Filters: React.FC<FiltersProps> = ({ brands, onFiltersChange }) => {
                 <div>
                     <h3 style={{ color: '#013E9B' }}>Marcas</h3>
                     <div style={{ maxHeight: '200px', overflowY: 'auto' }}>
-                        {brands.map((brand, index) => (
-                            <Form.Item style={{height: '5px'}} key={index}>
-                                <Checkbox onChange={handleBrandChange} value={brand} id={String(brand.id)}>
-                                    {brand}
-                                </Checkbox>
-                            </Form.Item>
-                        ))}
+                        <Checkbox.Group onChange={handleBrandChange} style={{ width: '30px' }}>
+                            {brands.map((brand, index) => (
+                                <Form.Item style={{ height: '5px' }} key={index}>
+                                    <Checkbox onChange={handleBrandChange} value={brand} id={String(brand.id)}>
+                                        {brand}
+                                    </Checkbox>
+                                </Form.Item>
+                            ))}
+                        </Checkbox.Group>
                     </div>
                 </div>
-
                 <div>
                     <h3 style={{ color: '#013E9B' }}>Precio</h3>
                     <Row gutter={16}>
                         <Col span={10}>
                             <Form.Item htmlFor="minPrice">
-                                <InputNumber onChange={(value) => handlePriceChange(value, priceRange.max)} type="number" id="minPrice" placeholder="100" min={100} max={5000} />
+                                <InputNumber onChange={(value) => handlePriceChange(value, priceRange.max)} type="number" id="minPrice" placeholder="100" min={0} max={Infinity} />
                             </Form.Item>
                         </Col>
                         <Col>
@@ -92,7 +94,7 @@ const Filters: React.FC<FiltersProps> = ({ brands, onFiltersChange }) => {
                         </Col>
                         <Col span={10}>
                             <Form.Item htmlFor="maxPrice">
-                                <InputNumber onChange={(value) => handlePriceChange(priceRange.min, value)}  id="maxPrice" placeholder="5000" min={100} max={5000} />
+                                <InputNumber onChange={(value) => handlePriceChange(priceRange.min, value)} id="maxPrice" placeholder="5000" min={0} max={Infinity} />
                             </Form.Item>
                         </Col>
                     </Row>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Card, Button, Row, Col } from 'antd';
 import { HeartOutlined, HeartFilled, StarFilled, StarOutlined } from '@ant-design/icons';
 import ProductModal from './productModal.tsx';
+import './card.css';
 
 const ProductCard: React.FC<ProductCardProps> = ({ id, nombre, marca, precio, reviews, imagen, informacion }) => {
     const [showModal, setShowModal] = useState(false);
@@ -32,7 +33,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, nombre, marca, precio, re
     return (
         <>
             <div style={{ marginRight: '2rem', marginBottom: '2rem', backgroundColor: '#EBEFF4' }}>
-                <Card extra={<Button type="text" onClick={() => changeHeart()}>{isHeartFilled ? <HeartFilled /> : <HeartOutlined />}</Button>} hoverable style={{ width: '18rem', height: 'auto' }} cover={<img src={imagen} alt={nombre} />}>
+                <Card className="cardStyle" extra={<Button type="text" style={{fontSize: '35px'}} onClick={() => changeHeart()}>{isHeartFilled ? <HeartFilled /> : <HeartOutlined />}</Button>} hoverable style={{ width: '18rem' }} cover={<img src={imagen} alt={nombre} />}>
                     <Row>
                         <Col span={12}>
                             <h4>{marca} {nombre}</h4>
@@ -40,7 +41,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, nombre, marca, precio, re
                             <p style={{ color: '#7D879C' }}>$120 p/semana o $520 p/mes</p>
                         </Col>
                         <Col span={12} style={{ textAlign: 'right' }}>
-                            <h2 style={{ fontSize: '1.75rem', fontWeight: 'bold', color: '#004AC1' }}>${precio.toFixed(2)}</h2>
+                            <h2 style={{ fontSize: '1.75rem', fontWeight: 'bold', color: '#004AC1', margin:'0px', marginBottom: '30px' }}>${precio.toFixed(2)}</h2>
                             <ProductModal show={showModal} handleClose={handleClose} product={{ marca, nombre, precio, imagen, informacion }} />
                         </Col>
                     </Row>

@@ -86,10 +86,7 @@ const getAllProducts = (): Product[] => {
 
 
 const Products: React.FC = () => {
-    const allProducts = [
-        ...celulares.map((product) => ({ ...product, id: `C${product.id}` })),
-        ...motos.map((product) => ({ ...product, id: `M${product.id}` })),
-    ];
+    const allProducts = getAllProducts();
 
     const [filteredProducts, setFilteredProducts] = useState(allProducts);
     const [searchTerm, setSearchTerm] = useState('');
@@ -99,7 +96,7 @@ const Products: React.FC = () => {
     const [selectedFilters, setSelectedFilters] = useState({
         brands: [],
         reviews: 0,
-        priceRange: { min: 0, max: Infinity }
+        priceRange: { min: 0, max: 999999 }
     });
 
     useEffect(() => {
@@ -116,13 +113,12 @@ const Products: React.FC = () => {
             const matchesReviews = product.reviews >= selectedFilters.reviews;
 
             const matchesPrice =
-                product.precio >= selectedFilters.priceRange.min &&
-                product.precio <= selectedFilters.priceRange.max;
+                product.precio >= (selectedFilters.priceRange.min ?? 0) &&
+                product.precio <= (selectedFilters.priceRange.max ?? Infinity);
+
 
             return matchesSearchTerm && matchesCategory && matchesBrands && matchesReviews && matchesPrice;
         });
-
-        // Lógica de ordenamiento
         if (sortOrder === 'asc') {
             filtered = filtered.sort((a, b) => a.precio - b.precio);
         } else if (sortOrder === 'desc') {
@@ -135,7 +131,6 @@ const Products: React.FC = () => {
     }, [searchTerm, selectedCategory, sortOrder, selectedFilters, allProducts]);
 
     useEffect(() => {
-        // Actualizar marcas en función de la categoría seleccionada
         if (selectedCategory === 'celulares') {
             setAllBrands(getBrandsFromCelulares());
         } else if (selectedCategory === 'motocicletas') {
