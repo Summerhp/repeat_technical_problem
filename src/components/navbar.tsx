@@ -1,5 +1,6 @@
 import React from 'react';
 import { Layout, Menu, theme, Button } from 'antd';
+import { Link } from 'react-router-dom';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 
 const { Header } = Layout;
@@ -15,7 +16,9 @@ const Navbar: React.FC = () => {
             <Layout>
                 <Header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#0248B8' }}>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <img src="../Logotipo-Macropay.svg" alt="MacroPay"></img>
+                        <Link className="navbar-brand" to="/" style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+                            <img src="../Logotipo-Macropay.svg" alt="MacroPay"></img>
+                        </Link>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                         <Button type="primary" style={{ marginRight: '10px', backgroundColor: '#fadb14', borderColor: '#fadb14' }}>

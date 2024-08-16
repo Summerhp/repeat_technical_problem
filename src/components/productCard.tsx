@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Card, Button, Row, Col } from 'antd';
 import { HeartOutlined, HeartFilled, StarFilled, StarOutlined } from '@ant-design/icons';
 import ProductModal from './productModal.tsx';
+import { Link } from 'react-router-dom';
 import './card.css';
 
 const ProductCard: React.FC<ProductCardProps> = ({ id, nombre, marca, precio, reviews, imagen, informacion }) => {
@@ -33,20 +34,20 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, nombre, marca, precio, re
     return (
         <>
             <div style={{ marginRight: '2rem', marginBottom: '2rem', backgroundColor: '#EBEFF4' }}>
-                <Card className="cardStyle" extra={<Button type="text" style={{fontSize: '35px'}} onClick={() => changeHeart()}>{isHeartFilled ? <HeartFilled /> : <HeartOutlined />}</Button>} hoverable style={{ width: '18rem' }} cover={<img src={imagen} alt={nombre} />}>
-                    <Row>
-                        <Col span={12}>
-                            <h4>{marca} {nombre}</h4>
-                            {renderStars(reviews)}
-                            <p style={{ color: '#7D879C' }}>$120 p/semana o $520 p/mes</p>
-                        </Col>
-                        <Col span={12} style={{ textAlign: 'right' }}>
-                            <h2 style={{ fontSize: '1.75rem', fontWeight: 'bold', color: '#004AC1', margin:'0px', marginBottom: '30px' }}>${precio.toFixed(2)}</h2>
-                            <ProductModal show={showModal} handleClose={handleClose} product={{ marca, nombre, precio, imagen, informacion }} />
-                        </Col>
-                    </Row>
-                </Card >
-            </div>
+                <Card className="cardStyle" extra={<Button type="text" style={{ fontSize: '35px' }} onClick={() => changeHeart()}>{isHeartFilled ? <HeartFilled /> : <HeartOutlined />} </Button>} hoverable style={{ width: '18rem' }} cover={<Link to={`/product/${id}`}><img src={imagen} alt={nombre} style={{ width: '100%', height: 'auto' }} /> </Link>}>
+                <Row>
+                    <Col span={12}>
+                        <h4>{marca} {nombre}</h4>
+                        {renderStars(reviews)}
+                        <p style={{ color: '#7D879C' }}>$120 p/semana o $520 p/mes</p>
+                    </Col>
+                    <Col span={12} style={{ textAlign: 'right' }}>
+                        <h2 style={{ fontSize: '1.75rem', fontWeight: 'bold', color: '#004AC1', margin: '0px', marginBottom: '30px' }}>${precio.toFixed(2)}</h2>
+                        <ProductModal show={showModal} handleClose={handleClose} product={{ marca, nombre, precio, imagen, informacion }} />
+                    </Col>
+                </Row>
+            </Card >
+        </div >
         </>
     );
 };
