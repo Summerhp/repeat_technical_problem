@@ -15,10 +15,11 @@ function App() {
           <Navbar />
           <div className="container mt-4">
             <Routes>
-              <Route path="/" element={<><br></br><Products/><br></br> <br></br><Carrusel/></>} />
+              <Route path="/" element={<><br></br><Products /><br></br> <br></br><Carrusel /></>} />
               <Route path="/product/:id" element={<ProductDetail />} />
             </Routes>
           </div>
+          <br></br>
           <Footer />
         </div>
       </Router>
