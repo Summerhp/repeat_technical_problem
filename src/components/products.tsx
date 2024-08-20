@@ -51,6 +51,7 @@ interface Product {
     precio: number;
     reviews: number;
     imagen: string;
+    favorito: boolean;
     informacion: JSON;
 }
 
@@ -186,7 +187,6 @@ const Products: React.FC = () => {
                 </Col>
             </Row>
         </>
-
     );
 };
 

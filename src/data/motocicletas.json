@@ -21,7 +21,7 @@
       "marca": "Honda",
       "precio": 11799.99,
       "reviews": 5,
-      "favorito": false,
+      "favorito": true,
       "imagen": "https://img.remediosdigitales.com/fc045d/honda-cbr600rr-serie-carreras-2021-4/840_560.jpg",
       "informacion": {
         "motor": "599cc, 4 tiempos, DOHC",
@@ -53,7 +53,7 @@
       "marca": "Ducati",
       "precio": 16995.00,
       "reviews": 3,
-      "favorito": false,
+      "favorito": true,
       "imagen": "https://ducatidetroit.com/wp-content/uploads/2023/01/IMG_1049.jpeg",
       "informacion": {
         "motor": "955cc, 4 tiempos, DOHC",

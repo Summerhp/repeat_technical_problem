@@ -5,7 +5,7 @@
       "marca": "Samsung",
       "precio": 799.99,
       "reviews": 1,
-      "favorito": false,
+      "favorito": true,
       "imagen": "https://tienda.movistar.com.co/media/catalog/product/cache/ebd1de6550e0d0b8d8c505e2a09b56c4/s/2/s21fenegro01.jpg",
       "informacion": {
         "fabricante": "Samsung Electronics",
@@ -47,7 +47,7 @@
       "marca": "Google",
       "precio": 599.99,
       "reviews": 2,
-      "favorito": false,
+      "favorito": true,
       "imagen": "https://m.media-amazon.com/images/I/61ruKkvVIxL.jpg",
       "informacion": {
         "fabricante": "Google LLC",

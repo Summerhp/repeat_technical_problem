@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Breadcrumb, Row, Col, Button, Image, Space, Descriptions, Tabs, Typography, List, Slider } from 'antd';
 import { useParams } from 'react-router-dom';
-import ProductGrid from './productgrid.tsx';
+import ProductGrid from './productGrid.tsx';
 import celulares from '../data/celulares.json';
 import motos from '../data/motocicletas.json';
-import { StarFilled, StarOutlined, CreditCardOutlined, ArrowRightOutlined, CheckOutlined } from '@ant-design/icons';
+import { StarFilled, StarOutlined, CreditCardOutlined, ArrowRightOutlined, CheckOutlined, HeartFilled, HeartOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import './productDetail.css';
 
@@ -17,6 +17,7 @@ interface Product {
     precio: number;
     reviews: number;
     imagen: string;
+    favorito: boolean;
     informacion: {
         fabricante?: string;
         peso?: string;
@@ -36,7 +37,6 @@ interface Product {
 const { TabPane } = Tabs;
 
 const ProductDetail: React.FC = () => {
-    const [showMore, setShowMore] = useState(false);
     const { id } = useParams<{ id: string }>();
     const normalizeProduct = (product: any): Product => ({ ...product });
     let allProducts: Product[] = [];
@@ -51,7 +51,7 @@ const ProductDetail: React.FC = () => {
     if (!product) {
         return <div>Producto no encontrado</div>;
     }
-
+    const [isHeartFilled, setIsHeartFilled] = useState(product.favorito);
     const renderStars = (rating: number) => {
         const filledStars = Math.floor(rating);
         const totalStars = 5;
@@ -67,6 +67,9 @@ const ProductDetail: React.FC = () => {
 
         return starsArray;
     };
+    const changeHeart = () => {
+        setIsHeartFilled(!isHeartFilled);
+    }
     const relatedProducts = allProducts.filter((prod) => prod.id !== id).slice(0, 4);
     return (
         <>
@@ -96,6 +99,7 @@ const ProductDetail: React.FC = () => {
                 </Col>
                 <Col span={6}>
                     <Image src={product.imagen} style={{ height: '450px' }} />
+                    <Button type="text" style={{fontSize: '35px', padding: '0px', height: 'auto', position: 'absolute', top: '10px', right: '10px', zIndex: 1}} onClick={() => changeHeart()}>{isHeartFilled ? <HeartFilled /> : <HeartOutlined />}</Button>
                 </Col>
                 <Col span={14}>
                     <Row justify={'space-between'}>
