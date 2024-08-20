@@ -1,7 +1,8 @@
 import React from 'react';
-import { Layout, Menu, theme, Button } from 'antd';
+import { Layout, Menu, theme, Button, Row } from 'antd';
 import { Link } from 'react-router-dom';
 import { ShoppingCartOutlined } from '@ant-design/icons';
+import './navbar.css';
 
 const { Header } = Layout;
 
@@ -28,6 +29,9 @@ const Navbar: React.FC = () => {
                             Iniciar sesión
                         </Button>
                         <ShoppingCartOutlined style={{ fontSize: '24px', color: 'white' }} />
+                        <div style={{ paddingLeft: '' }} className="credit-label">
+                            <span>COMPRA A <br /> CRÉDITO</span>
+                        </div>
                     </div>
                 </Header>
             </Layout>

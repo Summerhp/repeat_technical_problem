@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Breadcrumb, Row, Col, Button, Image, Space, Descriptions, Tabs, Typography, List, Slider  } from 'antd';
+import { Breadcrumb, Row, Col, Button, Image, Space, Descriptions, Tabs, Typography, List, Slider } from 'antd';
 import { useParams } from 'react-router-dom';
 import ProductGrid from './productgrid.tsx';
 import celulares from '../data/celulares.json';
@@ -67,13 +67,7 @@ const ProductDetail: React.FC = () => {
 
         return starsArray;
     };
-    const relatedProducts = allProducts.filter((prod) => prod.id !== id);
-
-    function handleShowMoreClick() {
-        setShowMore(!showMore);
-    }
-
-
+    const relatedProducts = allProducts.filter((prod) => prod.id !== id).slice(0, 4);
     return (
         <>
             <br></br>
@@ -194,18 +188,18 @@ const ProductDetail: React.FC = () => {
             </Row>
             <Row>
                 <Col span={10} offset={1}>
-                    <Row>
+                    <Row gutter={[16, 16]}>
                         {[1, 2, 3, 4].map((_, index) => (
                             <Col key={index} span={12}>
                                 <div style={{ border: '1px solid #f0f0f0', borderRadius: '8px', textAlign: 'center' }}>
-                                    <img src={product.imagen} style={{ width: '100%', height: 'auto', borderRadius: '8px' }} />
+                                    <img src={product.imagen} style={{ width: '100%', height: '558px', borderRadius: '8px' }} />
                                 </div>
                             </Col>
                         ))}
                     </Row>
                 </Col>
                 <Col span={12} offset={1}>
-                    <Row>
+                    <Row style={{ minHeight: '558px' }}>
                         <Tabs defaultActiveKey="1">
                             <TabPane tab="Otras Especificaciones" key="1">
                                 <Descriptions className='tableStyle' bordered column={1} labelStyle={{ fontWeight: 'bold', width: '200px' }}>
@@ -228,12 +222,12 @@ const ProductDetail: React.FC = () => {
                             </TabPane>
                         </Tabs>
                     </Row>
-                    <Row gutter={16} style={{ padding: '20px', background: '#f0f2f5' }}>
-                        <Col span={12} style={{ background: '#0049A1', borderRadius: '8px', padding: '20px' }}>
+                    <Row align={'middle'} style={{ minHeight: '558px' }} >
+                        <Col span={8} style={{ borderRadius: '8px', padding: '20px', backgroundColor: '#0550CB' }}>
                             <Title level={3} style={{ color: '#fff' }}>
                                 Lleva este celular a Crédito!
                             </Title>
-                            <Text style={{ color: '#fff', fontSize: '18px' }}>¿Qué necesitas?</Text>
+                            <Text style={{ color: '#FFD300', fontSize: '18px' }}>¿Qué necesitas?</Text>
                             <List
                                 style={{ marginTop: '10px', color: '#FFFF00' }}
                                 dataSource={[
@@ -242,37 +236,48 @@ const ProductDetail: React.FC = () => {
                                     'Correo electrónico',
                                 ]}
                                 renderItem={(item) => (
-                                    <List.Item style={{ color: '#FFFF00', fontSize: '16px' }}>
-                                        <CheckOutlined style={{ marginRight: '8px' }} />
+                                    <List.Item style={{ color: '#FFFFFF', fontSize: '16px' }}>
+                                        <CheckOutlined style={{ marginRight: '8px', color: '#A2D456' }} />
                                         {item}
                                     </List.Item>
                                 )}
                             />
                         </Col>
-                        <Col span={12} style={{ background: '#fff', borderRadius: '8px', padding: '20px' }}>
-                            <div style={{ textAlign: 'center' }}>
-                                <div style={{ fontSize: '48px', color: '#0049A1', marginBottom: '10px' }}>😊</div>
-                                <Title level={4}>¿Te falta una lanita?</Title>
-                                <Text strong>ENGANCHE $520,00</Text>
-                                <br />
-                                <Text strong>PAGO SEMANAL $125,00</Text>
+                        <Col span={10} offset={4} style={{ background: '#fff', borderRadius: '8px' }}>
+                            <div style={{ margin: '20px', height: '400px', alignContent: 'center' }}>
+                                <div style={{ textAlign: 'center' }}>
+                                    <div style={{ fontSize: '48px', color: '#0049A1', marginBottom: '10px' }}><img src="../Happy_face.svg" alt="MacroPay" style={{ width: '20%' }} /></div>
+                                    <Title level={4}>¿Te falta una lanita?</Title>
+                                    <Text style={{ fontSize: '17px' }}>ENGANCHE $520,00</Text>
+                                    <br />
+                                    <Text style={{ fontSize: '17px' }}>PAGO SEMANAL $125,00</Text>
+                                </div>
+                                <div style={{ marginTop: '20px' }}>
+                                    <Slider
+                                        defaultValue={15}
+                                        style={{ marginBottom: '10px' }}
+                                    />
+                                    <Text>Enganche</Text>
+                                </div>
+                                <Row>
+                                    <Button type="primary" block style={{ background: '#FFD300', color: '#004AC1', fontSize: '25px', padding: '30px', fontWeight: 'bold' }}>
+                                        Aplica ahora
+                                    </Button>
+                                </Row>
+                                <Text type="secondary" style={{ display: 'block', marginTop: '10px', fontSize: '12px', textAlign: 'center' }}>
+                                    *Hasta $2,000 de manera fácil, rápida y confiable
+                                </Text>
                             </div>
-                            <div style={{ marginTop: '20px' }}>
-                                <Slider
-                                    defaultValue={15}
-                                    tooltipVisible
-                                    style={{ marginBottom: '10px' }}
-                                />
-                                <Text>Enganche</Text>
-                            </div>
-                            <Button type="primary" block style={{ background: '#FFFF00', color: '#000', marginTop: '20px' }}>
-                                Aplica ahora
-                            </Button>
-                            <Text type="secondary" style={{ display: 'block', marginTop: '10px', fontSize: '12px', textAlign: 'center' }}>
-                                *Hasta $2,000 de manera fácil, rápida y confiable
-                            </Text>
                         </Col>
                     </Row>
+                </Col>
+            </Row>
+            <Row justify={'center'}>
+                <h1>Productos Relacionados</h1>
+            </Row>
+            <Row justify={'center'}>
+                <Col>
+                    <ProductGrid products={relatedProducts} />
                 </Col>
             </Row>
         </>

@@ -1,11 +1,11 @@
 .tableStyle .ant-descriptions-item-label,
 .tableStyle .ant-descriptions-item-content {
-    padding: 3px !important;
+    padding: 13px !important;
 }
 .ant-descriptions-item-content {
     font-weight: bold;
 }
 
 .tableStyle .ant-descriptions-item {
-    padding: 3px !important;
+    padding: 13px !important;
 }

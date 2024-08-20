@@ -43,13 +43,13 @@ const Footer2: React.FC = () => {
                         <img src="../Happy_face.svg" alt="MacroPay" style={{ width: '60%' }} />
                     </Col>
                     <Col span={8} offset={2} style={{alignItems: 'center', justifyContent: 'center', alignContent: 'center'}}>
-                        <h1>Conversemos!</h1>
-                        <p>Loren ipsum dolor sit amet</p>
+                        <h1 style={{fontSize: '40px'}}>Conversemos!</h1>
+                        <p style={{fontSize: '15px'}}>Loren ipsum dolor sit amet</p>
                         <Space size="large">
-                            <a href="#"><FacebookOutlined style={{ fontSize: '35px', color: 'black'}} /></a>
-                            <a href="#"><InstagramOutlined style={{ fontSize: '35px', color: 'black' }} /></a>
-                            <a href="#"><LinkedinOutlined style={{ fontSize: '35px', color: 'black' }} /></a>
-                            <a href="#"><WhatsAppOutlined style={{ fontSize: '35px', color: 'black' }} /></a>
+                            <a href="#"><FacebookOutlined style={{ fontSize: '40px', color: 'black'}} /></a>
+                            <a href="#"><InstagramOutlined style={{ fontSize: '40px', color: 'black' }} /></a>
+                            <a href="#"><LinkedinOutlined style={{ fontSize: '40px', color: 'black' }} /></a>
+                            <a href="#"><WhatsAppOutlined style={{ fontSize: '40px', color: 'black' }} /></a>
                         </Space>
                     </Col>
                 </Row>

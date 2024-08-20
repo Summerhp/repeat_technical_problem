@@ -37,7 +37,6 @@ const ProductModal: React.FC<ProductModalProps> = ({ product }) => {
     const buttonStyle = {
         backgroundColor: hover ? '#004AC1' : '#FFD300',
         borderColor: hover ? '#004AC1' : '#FFD300',
-        marginRight: '10px',
     };
 
     return (

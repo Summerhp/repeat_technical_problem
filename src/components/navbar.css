@@ -1,0 +1,22 @@
+.credit-label {
+    position: relative;
+    width: 200px; /* Ajusta según el tamaño deseado */
+    height: 200px;
+    background: linear-gradient(to bottom right, #ffcc00, #d4a000); /* Degradado similar al mostrado en la imagen */
+    border-radius: 50%; /* Hace que el div sea un círculo */
+    transform: rotate(-45deg); /* Rota todo el círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .credit-label span {
+    transform: rotate(90deg); /* Reajusta el texto para que quede horizontal */
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+    line-height: 1.2;
+    padding-top: 50px;
+  }
+  
