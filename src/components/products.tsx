@@ -144,6 +144,17 @@ const Products: React.FC = () => {
     const handleFiltersChange = (filters) => {
         setSelectedFilters(filters);
     };
+
+    const toggleFavorite = (id: string) => {
+        setFilteredProducts((prevProducts) =>
+            prevProducts.map((product) =>
+                product.id === id
+                    ? { ...product, favorito: !product.favorito }
+                    : product
+            )
+        );
+    };
+    
     return (
         <>
             <Row align={'middle'}>
@@ -183,7 +194,7 @@ const Products: React.FC = () => {
                     <Filters brands={allBrands} onFiltersChange={handleFiltersChange} />
                 </Col>
                 <Col span={16} offset={0} style={{ maxHeight: '700px', overflowY: 'auto' }}>
-                    <ProductGrid products={filteredProducts} />
+                    <ProductGrid products={filteredProducts} onFavoriteToggle={toggleFavorite} />
                 </Col>
             </Row>
         </>

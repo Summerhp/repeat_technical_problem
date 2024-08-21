@@ -5,7 +5,19 @@ import ProductModal from './productModal.tsx';
 import { Link } from 'react-router-dom';
 import './card.css';
 
-const ProductCard: React.FC<ProductCardProps> = ({ id, nombre, marca, precio, reviews, imagen, favorito, informacion }) => {
+interface ProductCardProps {
+    id: string;
+    nombre: string;
+    marca: string;
+    precio: number;
+    reviews: number;
+    imagen: string;
+    favorito: boolean;
+    informacion: JSON;
+    toggleFavorite: (id: string) => void;
+}
+
+const ProductCard: React.FC<ProductCardProps> = ({ id, nombre, marca, precio, reviews, imagen, favorito, informacion, toggleFavorite  }) => {
     const [showModal, setShowModal] = useState(false);
     const [isHeartFilled, setIsHeartFilled] = useState(favorito);
     const handleClose = () => setShowModal(false);
@@ -28,6 +40,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, nombre, marca, precio, re
     const changeHeart = () => {
         //Solicitud a la API para actualizar los favoritos
         setIsHeartFilled(!isHeartFilled);
+        toggleFavorite(id);
     };
 
     return (

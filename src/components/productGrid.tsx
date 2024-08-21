@@ -15,14 +15,14 @@ interface Product {
 
 interface ProductGridProps {
     products: Product[];
+    toggleFavorite: (id: string) => void;
 }
-
-const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
-    console.log(products)
+const ProductGrid: React.FC<ProductGridProps> = ({ products, toggleFavorite }) => {
     return (
         <Row>
             {products.map((product) => (
-                <ProductCard id={product.id} nombre={product.nombre} marca={product.marca} precio={product.precio} reviews={product.reviews} imagen={product.imagen} favorito={product.favorito} informacion={product.informacion}/>
+                <ProductCard key={product.id} id={product.id} nombre={product.nombre} marca={product.marca} precio={product.precio} reviews={product.reviews} imagen={product.imagen} favorito={product.favorito} informacion={product.informacion} toggleFavorite={toggleFavorite}
+                />
             ))}
         </Row>
 
