@@ -48,13 +48,15 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, nombre, marca, precio, re
             <div style={{ marginRight: '2rem', marginBottom: '2rem', backgroundColor: '#EBEFF4' }}>
                 <Card className="cardStyle" extra={<Button type="text" style={{ fontSize: '35px', padding: '0px', height: 'auto' }} onClick={() => changeHeart()}>{isHeartFilled ? <HeartFilled /> : <HeartOutlined />}</Button>} hoverable style={{ width: '18rem' }} cover={
                     <Link to={`/product/${id}`}>
-                        <div style={{ position: 'relative' }}>
-                            <img src={imagen} alt={nombre} style={{ width: '100%', height: 'auto' }} />
-                            <div style={{ width: '50px', height: '50px', position: 'absolute', bottom: '10px', left: '10px', backgroundColor: '#FF4D4F', color: '#FFFFFF', borderRadius: '100%', fontSize: '18px', fontWeight: 'bold', alignContent: 'center', textAlign: 'center' }}>
-                                40%
+                        <div>
+                            <img src={imagen} alt={nombre} style={{ width: '288px', height: '288px' }} />
+                            <div style={{ width: '70px', height: '70px', position: 'absolute', bottom: '180px', left: '10px', backgroundColor: '#FF4D4F', color: '#FFFFFF', borderRadius: '100%', fontSize: '25px', fontWeight: 'bold', alignContent: 'center', textAlign: 'center' }}>
+                                <p style={{ margin: '0' }}>40%</p>
                             </div>
+
                         </div>
                     </Link>
+
                 }>
                     <Row>
                         <Col span={12}>

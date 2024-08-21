@@ -7,6 +7,7 @@ import motos from '../data/motocicletas.json';
 import { StarFilled, StarOutlined, CreditCardOutlined, ArrowRightOutlined, CheckOutlined, HeartFilled, HeartOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import backgroundImage from '../assets/Vector 3.png';
+import image from '../assets/Vector 5.png';
 import './productDetail.css';
 
 const { Title, Text } = Typography;
@@ -97,10 +98,16 @@ const ProductDetail: React.FC = () => {
                     <Image src={product.imagen} style={{ height: '150px', width: '150px' }} />
                     <Image src={product.imagen} style={{ height: '150px', width: '150px' }} />
                     <Image src={product.imagen} style={{ height: '150px', width: '150px' }} />
+                    <Image src={product.imagen} style={{ height: '150px', width: '150px' }} />
                 </Col>
                 <Col span={6}>
-                    <Image src={product.imagen} style={{ height: '450px' }} />
-                    <Button type="text" style={{ fontSize: '35px', padding: '0px', height: 'auto', position: 'absolute', top: '10px', right: '10px', zIndex: 1 }} onClick={() => changeHeart()}>{isHeartFilled ? <HeartFilled /> : <HeartOutlined />}</Button>
+                    <div style={{ position: 'relative' }}>
+                        <Image src={product.imagen} style={{ height: '600px'}} />
+                        <Button type="text" style={{ fontSize: '35px', padding: '0px', height: 'auto', position: 'absolute', top: '10px', right: '10px', zIndex: 1 }} onClick={() => changeHeart()}>{isHeartFilled ? <HeartFilled /> : <HeartOutlined />}</Button>
+                        <div style={{ width: '70px', height: '70px', position: 'absolute', bottom: '10px', left: '10px', backgroundColor: '#FF4D4F', color: '#FFFFFF', borderRadius: '100%', fontSize: '25px', fontWeight: 'bold', alignContent: 'center', textAlign: 'center' }}>
+                            <p style={{ margin: '0' }}>40%</p>
+                        </div>
+                    </div>
                 </Col>
                 <Col span={14}>
                     <Row justify={'space-between'}>
@@ -150,10 +157,21 @@ const ProductDetail: React.FC = () => {
                         </p>
                     </Row>
                     <Row align="top" style={{ marginRight: '30px' }}>
-                        <Col span={6}>
-                            <img src='../Product Detail.png' alt="Product" style={{ width: '100%', height: 'auto' }}
-                            />
+                        <Col span={5}>
+                            <div style={{ position: 'relative', alignContent: 'center', backgroundImage: `url(${image})`, backgroundSize: '100% 100%', backgroundPosition: 'start', backgroundRepeat: 'no-repeat', minHeight: '164px' }}>                                
+                                <Row align={'middle'} justify={'center'}>
+                                    <Col span={10}>
+                                        <h1 style={{ color: '#013E9B', zIndex: 2, position: 'relative', marginTop: '40px', marginLeft: '10px' }}>HOY</h1>
+                                    </Col>
+                                    <Col span={10} offset={3} pull={1}>
+                                        <p style={{ color: '#ffffff', zIndex: 2, position: 'relative', margin: 0 }}>DESDE</p>
+                                        <p style={{ color: '#ffffff', zIndex: 2, position: 'relative', textAlign: 'end', fontSize: '30px', margin: 0 }}>$196</p>
+                                        <p style={{ color: '#ffffff', zIndex: 2, position: 'relative', textAlign: 'end', margin: 0 }}>SEMANAL</p>
+                                    </Col>
+                                </Row>
+                            </div>
                         </Col>
+
                         <Col span={18}>
                             <Row justify="space-between" style={{ background: '#ffffff', borderRadius: '10px', padding: '20px' }}>
                                 <Col span={7} style={{ textAlign: 'center', borderRight: '1px solid #e0e0e0' }}>
@@ -177,13 +195,16 @@ const ProductDetail: React.FC = () => {
                                     </div>
                                 </Col>
                             </Row>
-                            <div style={{ textAlign: 'right' }}>
-                                <Button type="primary" style={{ padding: '30px', marginBottom: '20px', background: '#ffcc00', color: '#002f87', fontWeight: 'bold' }}>
-                                    LO QUIERO A CRÉDITO <ArrowRightOutlined style={{ fontSize: '24px', color: '#ffffff', background: '#004AC1', borderRadius: '50%', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0' }} />
-                                </Button>
-                            </div>
                         </Col>
                     </Row>
+                    <Row style={{ marginRight: '30px' }} justify={'end'}>
+                        <div style={{ textAlign: 'right' }}>
+                            <Button type="primary" style={{ padding: '30px', marginBottom: '20px', background: '#ffcc00', color: '#002f87', fontWeight: 'bold' }}>
+                                LO QUIERO A CRÉDITO <ArrowRightOutlined style={{ fontSize: '24px', color: '#ffffff', background: '#004AC1', borderRadius: '50%', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0' }} />
+                            </Button>
+                        </div>
+                    </Row>
+
                 </Col >
             </Row >
             <Row>

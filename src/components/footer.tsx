@@ -12,7 +12,7 @@ const Footer2: React.FC = () => {
                 <Col span={10}>
                     <h3>OFERTAS Y PROMOCIONES</h3>
                     <h1>¡No te pierdas nuestras ofertas!</h1>
-                    <div style={{ alignItems: 'center' }}>
+                    <div style={{ textAlign: 'end' }}>
                         <Form size='large' name="basic" labelCol={{ span: 10 }} wrapperCol={{ span: 16 }} style={{ maxWidth: 600, borderBottom: '2px solid #000000', textAlign: 'center' }} initialValues={{ remember: true }} autoComplete="off">
                             <Form.Item name="mail">
                                 <Input placeholder="Tu dirección de correo electrónico" style={{width: '500px', height: 'auto'}} className="custom-input" addonAfter={<svg color='#004AC1' xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
