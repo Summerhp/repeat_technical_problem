@@ -34,7 +34,6 @@ const Navbar: React.FC = () => {
                             <ShoppingCartOutlined style={{ fontSize: '24px', color: 'white' }} />
                         </div>
                     </Col>
-                    {/* Aquí agregamos el div de la esquina */}
                     <div className="credit-label">
                         <span>COMPRA A <br /> CRÉDITO</span>
                     </div>

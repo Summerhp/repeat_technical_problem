@@ -1,0 +1,19 @@
+.custom-input {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 5px 0;
+}
+
+.custom-input:focus,
+.custom-input:hover {
+    border-color: #004AC1;
+    box-shadow: none;
+}
+
+.custom-input .ant-input {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}

@@ -17,7 +17,7 @@ interface ProductCardProps {
     toggleFavorite: (id: string) => void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ id, nombre, marca, precio, reviews, imagen, favorito, informacion, toggleFavorite  }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ id, nombre, marca, precio, reviews, imagen, favorito, informacion, toggleFavorite }) => {
     const [showModal, setShowModal] = useState(false);
     const [isHeartFilled, setIsHeartFilled] = useState(favorito);
     const handleClose = () => setShowModal(false);
@@ -48,7 +48,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, nombre, marca, precio, re
             <div style={{ marginRight: '2rem', marginBottom: '2rem', backgroundColor: '#EBEFF4' }}>
                 <Card className="cardStyle" extra={<Button type="text" style={{ fontSize: '35px', padding: '0px', height: 'auto' }} onClick={() => changeHeart()}>{isHeartFilled ? <HeartFilled /> : <HeartOutlined />}</Button>} hoverable style={{ width: '18rem' }} cover={
                     <Link to={`/product/${id}`}>
-                        <img src={imagen} alt={nombre} style={{ width: '100%', height: 'auto' }} />
+                        <div style={{ position: 'relative' }}>
+                            <img src={imagen} alt={nombre} style={{ width: '100%', height: 'auto' }} />
+                            <div style={{ width: '50px', height: '50px', position: 'absolute', bottom: '10px', left: '10px', backgroundColor: '#FF4D4F', color: '#FFFFFF', borderRadius: '100%', fontSize: '18px', fontWeight: 'bold', alignContent: 'center', textAlign: 'center' }}>
+                                40%
+                            </div>
+                        </div>
                     </Link>
                 }>
                     <Row>

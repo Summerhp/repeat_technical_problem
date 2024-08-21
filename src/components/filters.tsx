@@ -17,6 +17,7 @@ const Filters: React.FC<FiltersProps> = ({ brands, onFiltersChange }) => {
     const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
     const [selectedReviews, setSelectedReviews] = useState<number>(0);
     const [priceRange, setPriceRange] = useState<{ min: number; max: number }>({ min: 0, max: Infinity });
+    const [filledStars, setFilledStars] = useState<number>(0)
 
     const handleBrandChange = (checkedValues: any) => {
         setSelectedBrands(checkedValues);
@@ -24,9 +25,15 @@ const Filters: React.FC<FiltersProps> = ({ brands, onFiltersChange }) => {
     };
 
     const handleReviewsChange = (reviews: number) => {
-        setFilledStars(reviews);
-        setSelectedReviews(reviews);
-        onFiltersChange({ brands: selectedBrands, reviews, priceRange });
+        if (reviews === filledStars) {
+            setFilledStars(0);
+            setSelectedReviews(0);
+            onFiltersChange({ brands: selectedBrands, reviews: 0, priceRange });
+        } else {
+            setFilledStars(reviews);
+            setSelectedReviews(reviews);
+            onFiltersChange({ brands: selectedBrands, reviews, priceRange });
+        }
     };
 
     const handlePriceChange = (min: number, max: number) => {
@@ -34,8 +41,6 @@ const Filters: React.FC<FiltersProps> = ({ brands, onFiltersChange }) => {
         console.log(min, max)
         onFiltersChange({ brands: selectedBrands, reviews: selectedReviews, priceRange: { min, max } });
     };
-
-    const [filledStars, setFilledStars] = useState(0);
 
     const renderStars = () => {
         const totalStars = 5;
